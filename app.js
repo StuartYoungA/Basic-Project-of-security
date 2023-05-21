@@ -30,8 +30,7 @@ const User_Schema=mongoose.Schema({
     password:String
 })
 
-// const secret="I am using HP Laptop Security ";  //when we upload it in github then this key will be available over entire internet when opened . so now we use environment variables to do our LEVEL3 encryption ..we not show it khuleaam
-//and we gitignore .env file during commit
+
 User_Schema.plugin(encrypt, { secret: process.env.SECRET, encryptedFields:["password"] });
 const UserDetail=mongoose.model("UserDetail",User_Schema);
 
